@@ -51,7 +51,6 @@ export default function Item({ item, id }) {
                     style={{ width: '10px', height: '8px' }}
                 />
             </div>
-
             <p>{item.deliveryFee}원</p>
             <p>{item.price * item.amount}원</p>
         </ItemLi>
