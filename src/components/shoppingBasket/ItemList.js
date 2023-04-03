@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Item from './Item';
 
-import CheckOn from '../../assets/CheckOn.png';
-import CheckOff from '../../assets/CheckOff.png';
-import { ItemListSection, ItemListHead, ItemListTitle, ItemUl } from './style';
+//import CheckOn from '../../assets/CheckOn.png';
+//import CheckOff from '../../assets/CheckOff.png';
+import {
+    ItemListSection,
+    ItemListHead,
+    ItemListTitle,
+    ItemUl,
+} from '../../style/basket';
 
 import { ClickTotalCheck } from '../../store/ItemSlice';
 
+const CheckOn = '/assets/CheckOn.png';
+const CheckOff = '/assets/CheckOff.png';
+
 export default function ItemList() {
+    let [check, setCheck] = useState(false);
     const drugItem = useSelector((state) => state.item);
-    const checked = useSelector((state) => state.checked);
     const dispatch = useDispatch();
     const totalCheck = () => {
-        dispatch(ClickTotalCheck(checked));
+        setCheck((prev) => !prev);
+        dispatch(ClickTotalCheck(check));
     };
     return (
         <ItemListSection>
             <ItemListTitle>주문 상품</ItemListTitle>
             <ItemListHead>
                 <img
-                    src={checked ? CheckOn : CheckOff}
+                    src={check ? CheckOn : CheckOff}
                     onClick={totalCheck}
-                    alt="체크가 되어있는 아이콘"
+                    alt={check ? '체크가 되어있는 아이콘' : '체크해제 아이콘'}
                 />
                 <p style={{ flexBasis: '300px' }}>상품 정보</p>
                 <p>수량</p>
@@ -32,7 +41,12 @@ export default function ItemList() {
             </ItemListHead>
             <ItemUl>
                 {drugItem.map((item, idx) => (
-                    <Item item={item} key={idx} id={item.id} />
+                    <Item
+                        item={item}
+                        key={idx}
+                        id={item.id}
+                        setCheck={setCheck}
+                    />
                 ))}
             </ItemUl>
         </ItemListSection>

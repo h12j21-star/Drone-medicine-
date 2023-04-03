@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemList from './ItemList';
 import Payment from './Payment';
-import { PageTitle, Section } from './style';
+import { PageTitle, Section } from '../../style/basket';
 
 export default function ShoppingBasket() {
     return (

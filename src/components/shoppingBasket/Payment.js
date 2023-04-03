@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { PayButton, PaymentSection } from './style';
+import { PayButton, PaymentSection } from '../../style/basket';
 export default function Payment() {
     const drug = useSelector((state) => state.item);
     const checkedItem = drug.filter((item) => item.checked);

@@ -1,12 +1,18 @@
 import React from 'react';
-import downIcon from '../../assets/downIcon.png';
-import upIcon from '../../assets/upIcon.png';
-import CheckOn from '../../assets/CheckOn.png';
-import CheckOff from '../../assets/CheckOff.png';
-import { ItemLi, ItemImg, ItemInfo, ItemName } from './style';
+//import downIcon from '../../assets/downIcon.png';
+//import upIcon from '../../assets/upIcon.png';
+//import CheckOn from '../../assets/CheckOn.png';
+//import CheckOff from '../../assets/CheckOff.png';
+import { ItemLi, ItemImg, ItemInfo, ItemName } from '../../style/basket';
 import { useDispatch } from 'react-redux';
 import { ClickCheck, ClickDown, ClickUp } from '../../store/ItemSlice';
-export default function Item({ item, id }) {
+
+const downIcon = '/assets/downIcon.png';
+const upIcon = '/assets/upIcon.png';
+const CheckOn = '/assets/CheckOn.png';
+const CheckOff = '/assets/CheckOff.png';
+
+export default function Item({ item, id, setCheck }) {
     let dispatch = useDispatch();
     const upButton = (e) => {
         dispatch(ClickUp(id));
@@ -16,6 +22,9 @@ export default function Item({ item, id }) {
     };
     const clickButton = () => {
         dispatch(ClickCheck(id));
+        if (!item.checkd) {
+            setCheck(false);
+        }
     };
     return (
         <ItemLi>
