@@ -1,14 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import drug1 from '../assets/drug1.png';
-import drug2 from '../assets/drug2.png';
+//import drug1 from '../assets/drug1.png';
+//import drug2 from '../assets/drug2.png';
+
+const drug1 = '/assets/drug1.png';
+const drug2 = '/assets/drug2.png';
 let initialState = {
-    checked: false,
     item: [
         {
             id: 1,
             img: drug1,
             name: '눈 영양제 루테인 3박스',
             amount: 1,
+            max: 10,
             deliveryFee: 3000,
             price: 10000,
             checked: false,
@@ -18,6 +21,7 @@ let initialState = {
             img: drug2,
             name: '오메가 3 751mg',
             amount: 1,
+            max: 10,
             deliveryFee: 3000,
             price: 15000,
             checked: false,
@@ -32,6 +36,10 @@ const InputItem = createSlice({
             state.item.map((item) => {
                 if (item.id === action.payload) {
                     item.amount++;
+                }
+                if (item.amount > item.max) {
+                    item.amount = item.max;
+                    alert('🥲수량을 초과했습니다');
                 }
             });
         },
@@ -53,12 +61,10 @@ const InputItem = createSlice({
         },
         ClickTotalCheck(state, action) {
             if (action.payload) {
-                state.checked = false;
                 state.item.map((item) => {
                     item.checked = false;
                 });
             } else {
-                state.checked = true;
                 state.item.map((item) => {
                     item.checked = true;
                 });
