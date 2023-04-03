@@ -3,6 +3,7 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import Basket from "./pages/Basket";
 import Delivery from "./pages/Delivery";
+import PharmacyList from "./pages/PharmacyList";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <GlobalStyle />
         <div className="App">
           {/* <Basket /> */}
-          <Delivery />
+          {/* <Delivery /> */}
+          <PharmacyList />
         </div>
       </Provider>
     </>

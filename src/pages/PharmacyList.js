@@ -1,15 +1,14 @@
-import React from 'react';
-import Pharmacy from '../component/Pharmacy';
-import { Section, Title } from '../component/style';
+import React from "react";
+import Pharmacy from "../components/pharmacy/Pharmacy";
+import { Section, Title } from "../style/PharmacyStyle";
 
 const PharmacyList = () => {
-    
-    return (
+  return (
     <Section>
-        <Title>주변 약국 리스트</Title>
-        <Pharmacy/>
-    </Section>    
-    );
+      <Title>주변 약국 리스트</Title>
+      <Pharmacy />
+    </Section>
+  );
 };
 
 export default PharmacyList;
