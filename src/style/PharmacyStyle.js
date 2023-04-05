@@ -4,6 +4,7 @@ const Section = styled.section`
     width: 80%;
     margin: 70px auto;
     text-align: center;
+    font-family: "GmarketSansMedium";
 `;
 const Title = styled.h1`
     background-color:#529DDF;
