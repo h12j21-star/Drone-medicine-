@@ -31,7 +31,9 @@ export default function Item({ item, id, setCheck }) {
             <img
                 src={item.checked ? CheckOn : CheckOff}
                 onClick={clickButton}
-                alt="체크가 되어있는 아이콘"
+                alt={
+                    item.checked ? '체크가 되어있는 아이콘' : '체크 해제 아이콘'
+                }
                 style={{ width: '15px', height: '15px' }}
             />
             <ItemInfo>
@@ -39,6 +41,7 @@ export default function Item({ item, id, setCheck }) {
                     style={{
                         border: '1px solid #dbdbdb',
                         borderRadius: '10px',
+                        padding: '5px',
                     }}
                 >
                     <ItemImg src={item.src} alt={item.name} />
@@ -46,7 +49,7 @@ export default function Item({ item, id, setCheck }) {
                 <ItemName>{item.name}</ItemName>
             </ItemInfo>
             <div>
-                <p>{item.amount}개</p>
+                <p style={{ width: '50px' }}>{item.amount}개</p>
                 <img
                     src={upIcon}
                     onClick={upButton}
@@ -61,7 +64,7 @@ export default function Item({ item, id, setCheck }) {
                 />
             </div>
             <p>{item.deliveryFee}원</p>
-            <p>{item.price * item.amount}원</p>
+            <p style={{ width: '100px' }}>{item.price * item.amount}원</p>
         </ItemLi>
     );
 }
