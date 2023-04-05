@@ -21,7 +21,7 @@ export default function ItemList() {
     let [check, setCheck] = useState(false);
     const drugItem = useSelector((state) => state.shoppingBasket);
     const dispatch = useDispatch();
-    console.log("장바구니 목록:",drugItem);
+    console.log('장바구니 목록:', drugItem);
     const totalCheck = () => {
         setCheck((prev) => !prev);
         dispatch(ClickTotalCheck(check));
@@ -35,10 +35,10 @@ export default function ItemList() {
                     onClick={totalCheck}
                     alt={check ? '체크가 되어있는 아이콘' : '체크해제 아이콘'}
                 />
-                <p style={{ flexBasis: '300px' }}>상품 정보</p>
-                <p>수량</p>
-                <p>배송비</p>
-                <p>주문 금액</p>
+                <p style={{ margin: '0px', flexBasis: '300px' }}>상품 정보</p>
+                <p style={{ margin: '0px' }}>수량</p>
+                <p style={{ margin: '0px' }}>배송비</p>
+                <p style={{ margin: '0px' }}>주문 금액</p>
             </ItemListHead>
             <ItemUl>
                 {drugItem.map((item, idx) => (
