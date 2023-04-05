@@ -41,7 +41,7 @@ function Login(){
 
     const _login = () =>{
         if(findAccount(userId,userPw) === 0){
-            setLoginResult("ID not Fount you need to sign up!");
+            setLoginResult("ID not Found you need to sign up!");
 
         }else if(findAccount(userId,userPw) === -1){
             setLoginResult("wrong password");
