@@ -34,6 +34,8 @@ const ItemListHead = styled.div`
     padding: 0 20px;
 `;
 const ItemUl = styled.ul`
+    height: 300px;
+    overflow-y: scroll;
     text-align: center;
     margin: 0 auto;
     display: flex;
@@ -61,12 +63,20 @@ const ItemImg = styled.img`
 `;
 const PaymentSection = styled.section`
     margin: 40px auto 0;
-    height: 60px;
+    height: 100px;
     background-color: #f2f2f2;
     border-radius: 10px;
     align-items: center;
     justify-content: space-around;
     display: flex;
+`;
+const Title = styled.p`
+    font-size: 12px;
+`;
+const Price = styled.p`
+    margin-top: 10px;
+    font-size: ${(props) => (props.title === 'payment' ? '26px' : '20px')};
+    font-weight: 900;
 `;
 const PayButton = styled.button`
     width: 20%;
@@ -75,6 +85,11 @@ const PayButton = styled.button`
     background-color: #f2f2f2;
     border: 0;
     border-radius: 20px;
+`;
+const Unit = styled.span`
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 5px;
 `;
 export {
     Section,
@@ -89,4 +104,7 @@ export {
     ItemName,
     PaymentSection,
     PayButton,
+    Title,
+    Price,
+    Unit,
 };
