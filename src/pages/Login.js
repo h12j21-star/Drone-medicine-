@@ -15,7 +15,7 @@ function Login(){
         userPw: ''
     });
     const { userId, userPw } = inputs;
-
+    const navigate = useNavigate();
     const onChange = (e) => {
         const {value, name} = e.target;
         setInputs({
@@ -23,13 +23,6 @@ function Login(){
             [name]: value // name 키를 가진 값을 value 로 설정
         });
     };
-    const Reset = () => {
-        setInputs({
-            userId: '',
-            userPw: ''
-        })
-    };
-
     useEffect(()  => {
         document.body.classList.add('login__body');
     
@@ -48,9 +41,8 @@ function Login(){
         else{
             navigate("/pharmacylist");
             //페이지 이동하기
-
         }
-    const navigate = useNavigate();
+
    }    
     return(
         <div className = "mainDiv">
