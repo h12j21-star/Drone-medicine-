@@ -1,5 +1,13 @@
 
-import "../style/login.css"
+import {
+    MainDiv,
+    TitleText,
+    LoginMainImg,
+    MainInput,
+    BlueBtn,
+    Result
+}from "../style/register";
+
 import "../style/fonts.css"
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
@@ -45,14 +53,14 @@ function SignUp(){
     };
     const navigate = useNavigate();
     return(
-        <div className = "mainDiv">
-            <h2 className="titleText">Sign up</h2>
-            <input className="mainInput" name="userId"  type="text"  placeholder="ID"  onChange={onChange} value={userId}/>
-            <input className="mainInput"  name="userPw"  type="text" placeholder="PW" onChange={onChange} value={userPw} />
-            <input className="mainInput"   name="userPwCheck"  type="text" placeholder="PW Check" onChange={onChange} value={userPwCheck}/>
-            <button className="blueBtn"  onClick={_signUp}>sign up</button>
-            <p className="result">{resultString}</p>
-        </div>
+        <MainDiv className = "mainDiv">
+            <TitleText className="titleText">Sign up</TitleText>
+            <MainInput className="mainInput" name="userId"  type="text"  placeholder="ID"  onChange={onChange} value={userId}/>
+            <MainInput className="mainInput"  name="userPw"  type="text" placeholder="PW" onChange={onChange} value={userPw} />
+            <MainInput className="mainInput"   name="userPwCheck"  type="text" placeholder="PW Check" onChange={onChange} value={userPwCheck}/>
+            <BlueBtn className="blueBtn"  onClick={_signUp}>sign up</BlueBtn>
+            <Result className="result">{resultString}</Result>
+        </MainDiv>
     );
 }
 export default SignUp
