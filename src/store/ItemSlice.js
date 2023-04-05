@@ -1,39 +1,98 @@
 import { createSlice } from '@reduxjs/toolkit';
-//import drug1 from '../assets/drug1.png';
-//import drug2 from '../assets/drug2.png';
 
-const drug1 = '/assets/drug1.png';
-const drug2 = '/assets/drug2.png';
 let initialState = {
     item: [
         {
-            id: 1,
-            img: drug1,
-            name: '눈 영양제 루테인 3박스',
-            amount: 1,
-            max: 10,
-            deliveryFee: 3000,
-            price: 10000,
-            checked: false,
+            id : 1,
+            name : "얼라이브 멀티비타민",
+            src : "assets/multi-vitamin.jpg",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 25900
         },
         {
-            id: 2,
-            img: drug2,
-            name: '오메가 3 751mg',
-            amount: 1,
-            max: 10,
-            deliveryFee: 3000,
-            price: 15000,
-            checked: false,
+            id : 2,
+            src : "assets/omega.jpg",
+            name : "스포츠리서치 오메가3",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 38900
+        },
+        {
+            id : 3,   
+            src : "assets/magnesium.jpg",
+            name : "메가렉스 마그네슘",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 24900
+        },
+        {
+            id : 4,
+            src : "assets/lactobacillus.jpg",
+            name : "락토핏 골드",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 47520
+        },
+        {
+            id : 5,
+            src : "assets/milkThistle.jpg",
+            name : "실리마린 밀크시슬",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 25300
+        },
+        {
+            id : 6,
+            src : "assets/maca.jpg",
+            name : "나우푸드 마카",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 11390
+        },
+        {
+            id : 7,
+            src : "assets/arginine.jpg",
+            name : "뉴트리디데이 아르기닌",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 15900
+        },
+        {
+            id : 8,
+            src : "assets/collagen.jpg",
+            name : "뉴트리디데이 콜라겐",
+            amount : 1,
+            max : 10,
+            deliveryFee : 3000,
+            checked : false,
+            price : 22900
         },
     ],
+    shoppingBasket : [
+
+    ]
 };
 const InputItem = createSlice({
     name: 'basketItem',
     initialState,
     reducers: {
         ClickUp(state, action) {
-            state.item.map((item) => {
+            state.shoppingBasket.map((item) => {
                 if (item.id === action.payload) {
                     item.amount++;
                 }
@@ -44,7 +103,7 @@ const InputItem = createSlice({
             });
         },
         ClickDown(state, action) {
-            state.item.map((item) => {
+            state.shoppingBasket.map((item) => {
                 if (item.id === action.payload) {
                     if (item.amount > 1) {
                         item.amount--;
@@ -53,7 +112,7 @@ const InputItem = createSlice({
             });
         },
         ClickCheck(state, action) {
-            state.item.map((item) => {
+            state.shoppingBasket.map((item) => {
                 if (item.id === action.payload) {
                     item.checked = !item.checked;
                 }
@@ -61,18 +120,30 @@ const InputItem = createSlice({
         },
         ClickTotalCheck(state, action) {
             if (action.payload) {
-                state.item.map((item) => {
+                state.shoppingBasket.map((item) => {
                     item.checked = false;
                 });
             } else {
-                state.item.map((item) => {
+                state.shoppingBasket.map((item) => {
                     item.checked = true;
                 });
             }
         },
+        AddToCart(state,action) {
+            let result= state.shoppingBasket.find((oldItem)=>{
+                return oldItem.name===action.payload.name;
+            });
+            if(!result){
+                alert("장바구니에 추가되었습니다.");
+                state.shoppingBasket.push(action.payload);
+            }
+            else{
+                alert("이미 장바구니에 담겨있는 제품입니다.");
+            }
+        }
     },
 });
 
-export const { ClickUp, ClickDown, ClickCheck, ClickTotalCheck } =
+export const { ClickUp, ClickDown, ClickCheck, ClickTotalCheck, AddToCart } =
     InputItem.actions;
 export default InputItem.reducer;

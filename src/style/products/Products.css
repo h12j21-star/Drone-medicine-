@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+.products__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}

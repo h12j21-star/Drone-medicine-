@@ -1,0 +1,49 @@
+.item {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.item__add {
+    width: 190px;
+    height: 185px;
+    position: absolute;
+    background-color: #f2f2f2;
+    opacity: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item__add__btn {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item__img {
+    width: 190px;
+    height: 135px;
+    object-fit: fill;
+    border: none;
+}
+
+.item__name {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item__price {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}

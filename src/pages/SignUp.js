@@ -2,7 +2,9 @@
 import "../style/login.css"
 import "../style/fonts.css"
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import {addAccount,findAccount} from "../components/accounts/Accounts";
+import { useEffect } from "react";
 
 function SignUp(){
     const [inputs, setInputs] = useState({
@@ -41,6 +43,7 @@ function SignUp(){
             setResultString("sign up success");
         }
     };
+    const navigate = useNavigate();
     return(
         <div className = "mainDiv">
             <h2 className="titleText">Sign up</h2>

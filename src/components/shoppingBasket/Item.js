@@ -41,7 +41,7 @@ export default function Item({ item, id, setCheck }) {
                         borderRadius: '10px',
                     }}
                 >
-                    <ItemImg src={item.img} alt={item.name} />
+                    <ItemImg src={item.src} alt={item.name} />
                 </div>
                 <ItemName>{item.name}</ItemName>
             </ItemInfo>

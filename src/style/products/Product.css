@@ -1,0 +1,11 @@
+.main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__items {
+    width: 600px;
+    height: 400px;
+}

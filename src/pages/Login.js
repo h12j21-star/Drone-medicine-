@@ -1,12 +1,11 @@
 
 import "../style/login.css"
 import "../style/fonts.css"
-import React, { useState } from 'react';
-import {Navigate, Link } from "react-router-dom";
-import mainImg from '../assets/drugStore.png';
-
-
+import React, { useState, useEffect } from 'react';
+import {useNavigate, Link } from "react-router-dom";
 import {findAccount} from "../components/accounts/Accounts";
+
+const mainImg = 'assets/drugStore.png';
 
 function Login(){
 //여기서 배열같은 것을확인하고, 추가되어 있으면 다음 페이지로 없으면 오류를 띄워주기. 그리고 추가는 sign up 에서 한다.
@@ -30,6 +29,15 @@ function Login(){
             userPw: ''
         })
     };
+
+    useEffect(()  => {
+        document.body.classList.add('login__body');
+    
+        return () => {
+            document.body.classList.remove('login__body');
+        };
+    });
+
     const _login = () =>{
         if(findAccount(userId,userPw) === 0){
             setLoginResult("ID not Fount you need to sign up!");
@@ -38,11 +46,12 @@ function Login(){
             setLoginResult("wrong password");
         }
         else{
-
+            navigate("/pharmacylist");
             //페이지 이동하기
 
         }
-   }
+    const navigate = useNavigate();
+   }    
     return(
         <div className = "mainDiv">
             <h2 className="titleText">Drone medicine </h2>

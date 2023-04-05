@@ -19,8 +19,9 @@ const CheckOff = '/assets/CheckOff.png';
 
 export default function ItemList() {
     let [check, setCheck] = useState(false);
-    const drugItem = useSelector((state) => state.item);
+    const drugItem = useSelector((state) => state.shoppingBasket);
     const dispatch = useDispatch();
+    console.log("장바구니 목록:",drugItem);
     const totalCheck = () => {
         setCheck((prev) => !prev);
         dispatch(ClickTotalCheck(check));

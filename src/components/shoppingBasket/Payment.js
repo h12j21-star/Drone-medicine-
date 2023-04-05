@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { PayButton, PaymentSection } from '../../style/basket';
 export default function Payment() {
-    const drug = useSelector((state) => state.item);
+    const drug = useSelector((state) => state.shoppingBasket);
     const checkedItem = drug.filter((item) => item.checked);
+    const navigate = useNavigate();
     let totalDeliveryFee = 0;
     let totalPrice = 0;
     let totalAmount = 0;
@@ -35,7 +37,7 @@ export default function Payment() {
                     <p>{payment}원</p>
                 </div>
             </PaymentSection>
-            <PayButton>결제하기</PayButton>
+            <PayButton onClick={()=>{navigate('/delivery')}}>결제하기</PayButton>
         </>
     );
 }

@@ -1,33 +1,28 @@
-// import { GlobalStyle } from "./style/GlobalStyle";
-// import store from "./store/store";
-// import { Provider } from "react-redux";
-// import Basket from "./pages/Basket";
-// import Delivery from "./pages/Delivery";
-// import PharmacyList from "./pages/PharmacyList";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from "./style/GlobalStyle";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import store from "./store/store";
+import { Provider } from "react-redux";
+import Basket from "./pages/Basket";
+import Delivery from "./pages/Delivery";
+import PharmacyList from "./pages/PharmacyList";
+import { Routes, Route } from 'react-router-dom';
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Products from "./pages/Products";
 
 function App() {
   return (
-      <BrowserRouter>
-      <div className="App">
-          <Routes>
-              <Route path="/" element={<Login/>} />
-              <Route path="/signup" element={<SignUp/>}  />
-        </Routes>
-      </div>
-      </BrowserRouter>
-    // <>
-    //   <Provider store={store}>
-    //     <GlobalStyle />
-    //     <div className="App">
-    //       {/* <Basket /> */}
-    //       {/* <Delivery /> */}
-    //       <PharmacyList />
-    //     </div>
-    //   </Provider>
-    // </>
+      <Provider store={store}>
+
+            <Routes>
+                <Route path="/" element={<Login/>} />
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/pharmacylist" element={<PharmacyList/>}/>
+                <Route path="/products" element={<Products/>}/>
+                <Route path="/basket" element={<Basket/>}/>
+                <Route path="/delivery" element={<Delivery/>}/>    
+            </Routes>
+      </Provider>
   );
 }
 

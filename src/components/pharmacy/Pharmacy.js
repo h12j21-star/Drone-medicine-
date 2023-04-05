@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   PharmacyBtn,
   PharmacyImg,
@@ -71,7 +71,9 @@ const Pharmacy = () => {
   return (
     <>
       {pharmacies.map((pha) => (
-        <PharmacyItem pharmacies={pha} key={pha.id} />
+        <Link to={"/products"} style={{textDecoration: "none"}}>
+          <PharmacyItem pharmacies={pha} key={pha.id} />
+        </Link>
       ))}
     </>
   );
