@@ -31,7 +31,7 @@ const ItemListHead = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 60px;
 `;
 const ItemUl = styled.ul`
     height: 300px;
@@ -77,6 +77,7 @@ const Title = styled.p`
     margin: 0;
 `;
 const Price = styled.p`
+    width: 200px;
     margin-top: 10px;
     font-size: ${(props) => (props.title === 'payment' ? '22px' : '18px')};
     font-weight: 900;
