@@ -45,13 +45,13 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
       <div className="title">배달 중...</div>
       <div className="container1">
         <div className="discription">
-          <p style={{ fontSize: "50px", margin: "0" }}>바이오 드론이</p>
+          <p style={{ fontSize: "40px", margin: "0" }}>바이오 드론이</p>
           <p style={{ margin: "0" }}>안전하고 신속하게 배달 중입니다.</p>
         </div>
         <img className="drone" src={drone} alt="Drone" />
         <div className="time">
           <div className="timeBox">
-            <p style={{ fontSize: "25px", margin: "10px" }}>도착 예정 시간</p>
+            <p style={{ fontSize: "20px", margin: "10px" }}>도착 예정 시간</p>
             <p className="clock">
               {dist2min > 10000
                 ? `?`
