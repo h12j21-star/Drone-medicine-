@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-//import drug1 from '../assets/drug1.png';
-//import drug2 from '../assets/drug2.png';
 
 const drug1 = '/assets/drug1.png';
 const drug2 = '/assets/drug2.png';
@@ -14,6 +12,26 @@ let initialState = {
             max: 10,
             deliveryFee: 3000,
             price: 10000,
+            checked: false,
+        },
+        {
+            id: 2,
+            img: drug2,
+            name: '오메가 3 751mg',
+            amount: 1,
+            max: 10,
+            deliveryFee: 3000,
+            price: 15000,
+            checked: false,
+        },
+        {
+            id: 2,
+            img: drug2,
+            name: '오메가 3 751mg',
+            amount: 1,
+            max: 10,
+            deliveryFee: 3000,
+            price: 15000,
             checked: false,
         },
         {

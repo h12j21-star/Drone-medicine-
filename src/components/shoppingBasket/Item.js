@@ -31,7 +31,9 @@ export default function Item({ item, id, setCheck }) {
             <img
                 src={item.checked ? CheckOn : CheckOff}
                 onClick={clickButton}
-                alt="체크가 되어있는 아이콘"
+                alt={
+                    item.checked ? '체크가 되어있는 아이콘' : '체크 해제 아이콘'
+                }
                 style={{ width: '15px', height: '15px' }}
             />
             <ItemInfo>
@@ -46,7 +48,7 @@ export default function Item({ item, id, setCheck }) {
                 <ItemName>{item.name}</ItemName>
             </ItemInfo>
             <div>
-                <p>{item.amount}개</p>
+                <p style={{ width: '30px' }}>{item.amount}개</p>
                 <img
                     src={upIcon}
                     onClick={upButton}
