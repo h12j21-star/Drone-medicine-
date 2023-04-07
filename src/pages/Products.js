@@ -57,7 +57,7 @@ export default function Products() {
     };
     return (
         <div className="products__wrapper">
-            <Navigation />
+            <Navigation prevUrl="/pharmacylist" />
             <Search />
             <Category
                 categories={categories}
