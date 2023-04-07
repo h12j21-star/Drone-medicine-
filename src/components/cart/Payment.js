@@ -7,7 +7,7 @@ import {
     Title,
     Price,
     Unit,
-} from '../../style/basket';
+} from '../../style/cart';
 export default function Payment() {
     const drug = useSelector((state) => state.shoppingBasket);
     const checkedItem = drug.filter((item) => item.checked);

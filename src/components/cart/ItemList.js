@@ -10,7 +10,7 @@ import {
     ItemListHead,
     ItemListTitle,
     ItemUl,
-} from '../../style/basket';
+} from '../../style/cart';
 
 import { ClickTotalCheck } from '../../store/ItemSlice';
 

@@ -3,7 +3,7 @@ import React from 'react';
 //import upIcon from '../../assets/upIcon.png';
 //import CheckOn from '../../assets/CheckOn.png';
 //import CheckOff from '../../assets/CheckOff.png';
-import { ItemLi, ItemImg, ItemInfo, ItemName } from '../../style/basket';
+import { ItemLi, ItemImg, ItemInfo, ItemName } from '../../style/cart';
 import { useDispatch } from 'react-redux';
 import { ClickCheck, ClickDown, ClickUp } from '../../store/ItemSlice';
 

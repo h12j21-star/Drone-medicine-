@@ -53,7 +53,7 @@ export default function Navigation({ prevUrl, page }) {
                                 icon={faBagShopping}
                                 size="lg"
                                 onClick={() => {
-                                    navigate('/basket');
+                                    navigate('/cart');
                                 }}
                             />
                         </li>
