@@ -60,7 +60,7 @@ function Login(){
             <MainInput className="mainInput" name="userId" type="text"  placeholder="ID"  onChange={onChange}  value={userId}/>
             <MainInput className="mainInput"  name="userPw" type="text" placeholder="PW" onChange={onChange}  value={userPw}/>
             <BlueBtn className="blueBtn" onClick={_login}>Login</BlueBtn>
-            <Link to="/signup" className="signUpBtn">sign up</Link>
+            <Link to="/signup" className="signUpBtn" style={{textDecoration:"none"}}>sign up</Link>
             <Result className="result">{loginResult}</Result>
         </MainDiv>
     );
