@@ -24,7 +24,6 @@ const Pharmacy = () => {
         console.error(error);
       });
   }, []);
-  //navigate(`/${name}`);
   function handleClick(latitude, longitude) {
     navigate('/products', { state: { latitude, longitude } });
   }
