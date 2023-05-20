@@ -47,7 +47,7 @@ function Login(){
             setLoginResult("wrong password");
         }
         else{
-            navigate("/pharmacylist");
+            navigate("/pharmacy");
             //페이지 이동하기
         }
 

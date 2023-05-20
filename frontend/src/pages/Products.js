@@ -7,6 +7,7 @@ import Page from '../components/products/Page';
 import Product from '../components/products/Product';
 import Search from '../components/products/Search';
 import '../style/products/Products.css';
+import { useLocation, useParams } from 'react-router-dom';
 
 export default function Products() {
     const stateItem = useSelector((state) => state.item);
@@ -19,8 +20,13 @@ export default function Products() {
     const [categories, setCategories] = useState(['All', 'Best']);
     const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+    const {pharmacy} = useParams();
+    const {state} = useLocation();
+    const deliveryFee = state.deliveryFee;
+
     useEffect(() => {
         getItems(currentPage);
+        
         //카테고리 추가시 카테고리 고려하여 제공.
     }, [currentPage]);
 
@@ -57,7 +63,7 @@ export default function Products() {
     };
     return (
         <div className="products__wrapper">
-            <Navigation prevUrl="/pharmacylist" />
+            <Navigation prevUrl="/pharmacy" />
             <Search />
             <Category
                 categories={categories}

@@ -15,22 +15,23 @@ const Pharmacy = () => {
   const navigate = useNavigate();
   const [pharmacyList, setPharmacyList] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/pharmacylist")
+    axios.get("http://localhost:8081/pharmacy")
       .then((res) => {
-        console.log(res);
         setPharmacyList(res.data);
+        console.log(res.data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-  function handleClick(latitude, longitude) {
-    navigate('/products', { state: { latitude, longitude } });
+  function handleClick(name, latitude, longitude, deliveryFee) {
+    name= name.replace(" ","");
+    navigate(`/products/${name}`, { state: { latitude, longitude, deliveryFee } });
   }
-    
+
     const PharmacyItem = ({ pharmacyList }) => (
-      <PharmacyBtn onClick={() => handleClick(pharmacyList.latitude, pharmacyList.longitude)}>
-        <PharmacyImg src={pharmacyList.img} />
+      <PharmacyBtn onClick={() => handleClick(pharmacyList.name,pharmacyList.latitude, pharmacyList.longitude, pharmacyList.deliveryFee)}>
+        <PharmacyImg src={`http://localhost:8081/pharmacy/images/${pharmacyList.img}`} />
         <Pharmacyinfo>
           {pharmacyList.name}
           <br />
