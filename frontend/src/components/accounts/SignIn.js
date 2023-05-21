@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 import {useNavigate, Link } from "react-router-dom";
-
+import "../../style/fonts.css"
 import {BlueBtn, LoginMainImg, MainDiv, MainInput, Result, TitleText} from "../../style/register";
 const mainImg = 'assets/drugStore.png';
-import "../style/fonts.css"
+
 
 const SignIn = () => {
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = "http://localhost:8082";
     const [loginResult, setLoginResult] = useState(null);
     const [ID, setID] = useState();
     const [PW, setPW] = useState();
@@ -17,22 +16,23 @@ const SignIn = () => {
 
     });
     async function signInCheck(){
+        let data = 0;
         await axios
-            .get(baseUrl+"/userinfo"+ID)
+            .get(baseUrl+"/userinfo/"+ID)
             .then((response) => {
-                console.log(response.data);
-                if(response.data == null){
-                    return 0; //cannot find id
+
+                if(response.data.id === undefined){
                 }
-                else if(PW == response.data.id) {
-                    return 1;
+                else if(PW === response.data.pw) {
+                    data = 1
                 }else {
-                    return -1; //wrong pw
+                    data = -1; //wrong pw
                 }
             })
             .catch((error) => {
                 console.log(error)
             })
+        return data;
     }
     const handleChange_ID = (e)=>{
         e.preventDefault();
@@ -43,14 +43,14 @@ const SignIn = () => {
         e.preventDefault();
         setPW(e.target.value);
     }
-    const _login = () =>{
-        if(signInCheck() === 0){
+    const _login = async () => {
+        let IDCheck = await signInCheck();
+        if (IDCheck === 0) {
             setLoginResult("ID not Found you need to sign up!");
 
-        }else if(signInCheck() === -1){
+        } else if (IDCheck === -1) {
             setLoginResult("wrong password");
-        }
-        else{
+        } else if (IDCheck === 1)  {
             navigate("/pharmacylist");
         }
 

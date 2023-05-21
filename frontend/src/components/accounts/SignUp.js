@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from 'react-router-dom';
-import Navigation from '../components/common/Navigation';
+import Navigation from '../../components/common/Navigation';
 
 import {BlueBtn, LoginMainImg, MainDiv, MainInput, Result, TitleText} from "../../style/register";
-import '../style/fonts.css';
+import '../../style/fonts.css';
 
 const SignUp = () => {
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = "http://localhost:8082";
 
     const [ID, setID] = useState();
     const [PW, setPW] = useState();
@@ -16,20 +15,20 @@ const SignUp = () => {
     useEffect(() => {
 
     });
-async function getUser(){
+async function getUserById(){
+    let data = null;
     await axios
-        .get(baseUrl+"/userinfo"+ID)
+        .get(baseUrl+"/userinfo/"+ID)
         .then((response) => {
-            console.log(response.data);
-            if(response.data == null){
-                return 0; //cannot find id
-            }else {
-                return 1; //wrong pw
+            if(response.data.id === undefined){
+            }else{
+                data = response.data.id;
             }
         })
         .catch((error) => {
             console.log(error)
         })
+    return data;
 }
 
 async function  handleSubmit(){
@@ -39,7 +38,6 @@ async function  handleSubmit(){
             pw:PW
         })
         .then((response)=>{
-            alert(response.data)
             console.log(response.data)
         })
         .catch((error)=>{
@@ -60,23 +58,18 @@ async function  handleSubmit(){
         e.preventDefault();
         setPWCheck(e.target.value);
     }
-    const Reset = () => {
-        setID("");
-        setPW("");
-        setPWCheck("");
-    };
-    const _signUp = () => {
+    const _signUp =  async () => {
+        let IDCheck = await getUserById();
         if (PW !== PWCheck) {
             setResultString('Please Check your PW and PW check');
-        } else if (getUser() !== 0) {
-            setResultString('your ID already exist');
-        } else {
-            handleSubmit();
-            Reset();
+        } else if (IDCheck === null) {
+            handleSubmit().then(r => console.log("sign up success"));
             setResultString('sign up success');
+        } else {
+            setResultString('your ID already exist');
+
         }
     };
-    const navigate = useNavigate();
     return (
         <>
             <Navigation page="signup" prevUrl="/" />

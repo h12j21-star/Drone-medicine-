@@ -14,10 +14,14 @@ spring:
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
 
     hibernate:
       ddl-auto: create
-
+  h2:
+    console:
+      enabled: true
 
   data:
     rest:
@@ -38,3 +42,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
+
+
+
