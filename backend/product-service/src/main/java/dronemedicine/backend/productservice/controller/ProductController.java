@@ -17,7 +17,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class ProductController {
 
     private final ProductRepository productRepository;
@@ -80,7 +82,7 @@ public class ProductController {
         for(int id = 0 ; id<request.getIds().length;id++){
             Optional<Product>productUpdate=productRepository.findById(request.getIds()[id]);
             Product _product = productUpdate.get();
-            _product.setQuantity(request.getChangeProduct()[id]);
+            _product.setQuantity(_product.getQuantity()-request.getChangeProduct()[id]);
             System.out.println(" product: " +_product);
             productRepository.save(_product);
         }
