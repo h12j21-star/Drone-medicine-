@@ -1,6 +1,7 @@
 package dronemedicine.backend.productservice.controller;
 
 import dronemedicine.backend.productservice.domain.Product;
+import dronemedicine.backend.productservice.domain.ProductPostData;
 import dronemedicine.backend.productservice.repository.ProductRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.core.io.FileSystemResource;
@@ -73,6 +74,18 @@ public class ProductController {
         }
     }
 
+    @PutMapping("/products/order")
+    public String change(@RequestBody ProductPostData request){
+        System.out.println("body" + request );
+        for(int id = 0 ; id<request.getIds().length;id++){
+            Optional<Product>productUpdate=productRepository.findById(request.getIds()[id]);
+            Product _product = productUpdate.get();
+            _product.setQuantity(request.getChangeProduct()[id]);
+            System.out.println(" product: " +_product);
+            productRepository.save(_product);
+        }
 
+        return "Success";
+    }
 
 }
