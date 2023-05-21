@@ -1,15 +1,18 @@
-import Map from '../components/delivery/Map';
-import DeliveryTime from '../components/delivery/DeliveryTime';
-import Navigation from '../components/common/Navigation';
+import Map from "../components/delivery/Map";
+import DeliveryTime from "../components/delivery/DeliveryTime";
+import Navigation from "../components/common/Navigation";
+import { Pharmacy, position } from "../components/pharmacy/Pharmacy";
 
 function Delivery() {
-    return (
-        <>
-            <Navigation prevUrl="/products" />
-            <DeliveryTime drugLat={37.4484002} drugLon={127.1271451} />
-            <Map drugLat={37.4484002} drugLon={127.1271451} />
-        </>
-    );
+  return (
+    <>
+      <Navigation prevUrl="/products" />
+      <DeliveryTime drugLat={position.latitude} drugLon={position.longitude} />
+      <h3 style={{ textAlign: "center" }}>{position.name} 지도</h3>
+      {console.log(position.latitude)};
+      <Map drugLat={position.latitude} drugLon={position.longitude} />
+    </>
+  );
 }
 
 export default Delivery;
