@@ -19,7 +19,6 @@ function App() {
                 <Route path="/signup" element={<Join />} />
                 <Route path="/pharmacylist" element={<PharmacyList />} />
                 <Route path="/products" element={<Products />} />
-                <Route path="/signup" element={<SignUp />} />
                 <Route path="/pharmacy" element={<PharmacyList />} />
                 <Route path="/products/:pharmacy" element={<Products />} />
                 <Route path="/cart" element={<Cart />} />
