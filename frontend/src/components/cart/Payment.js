@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import {
     PayButton,
     PaymentSection,
@@ -8,6 +9,7 @@ import {
     Price,
     Unit,
 } from '../../style/cart';
+import axios from "axios";
 export default function Payment() {
     const drug = useSelector((state) => state.shoppingBasket);
     const checkedItem = drug.filter((item) => item.checked);
@@ -23,6 +25,31 @@ export default function Payment() {
         totalAmount += item.amount;
         payment += totalPrice;
     });
+    const orderPost = async () =>{
+        let ids = []
+        let changeProduct = []
+        drug.forEach((item)=>{
+            ids.push(item.id);
+            changeProduct.push(item.amount)
+        })
+
+        try{
+       const res = await axios.put("http://localhost:8082/products/order",
+            {
+            "ids":ids,
+            "changeProduct":changeProduct},
+        );
+
+            console.log(res)
+            setTimeout(()=>{
+                navigate('/delivery');
+            },1000)
+
+        }catch(err){
+            return err
+        }
+
+    }
     return (
         <>
             <PaymentSection>
@@ -56,9 +83,7 @@ export default function Payment() {
                 </div>
             </PaymentSection>
             <PayButton
-                onClick={() => {
-                    navigate('/delivery');
-                }}
+                onClick={orderPost}
             >
                 결제하기
             </PayButton>

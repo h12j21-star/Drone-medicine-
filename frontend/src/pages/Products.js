@@ -22,7 +22,7 @@ export default function Products() {
 
     const {pharmacy} = useParams();
     const {state} = useLocation();
-    const deliveryFee = state.deliveryFee;
+    //const deliveryFee = state.deliveryFee;
 
     useEffect(() => {
         getItems(currentPage);
