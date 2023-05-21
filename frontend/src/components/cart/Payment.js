@@ -26,6 +26,10 @@ export default function Payment() {
         payment += totalPrice;
     });
     const orderPost = async () =>{
+        if(drug.length<=0){
+            alert("장바구니가 비어있습니다.")
+            return
+        }
         let ids = []
         let changeProduct = []
         drug.forEach((item)=>{
