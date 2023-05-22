@@ -61,7 +61,7 @@ public class ProductController {
     public ResponseEntity<Resource> getProductImageByName(@PathVariable("imageName") String imageName){
         try {
             //DB의 이미지 파일명을 저장, 서버의 특정 폴더 안에 있는 이미지파일 프론트에 전송
-            String path="C:\\springExercise\\Drone-medicine-\\backend\\product-service\\image\\";
+            String path="C:\\springExercise\\finalProject\\Drone-medicine-\\backend\\product-service\\image\\";
             FileSystemResource resource = new FileSystemResource(path + imageName);
             if(!resource.exists()){
                 throw new NotFoundException();

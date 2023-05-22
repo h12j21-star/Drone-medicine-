@@ -5,7 +5,7 @@ import ShoppingCart from '../components/cart/ShoppingCart';
 export default function Cart() {
     return (
         <>
-            <Navigation prevUrl="/products" />
+            <Navigation prevUrl={-1} />
             <ShoppingCart />
         </>
     );

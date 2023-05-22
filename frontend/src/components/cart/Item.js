@@ -44,7 +44,7 @@ export default function Item({ item, id, setCheck }) {
                         padding: '5px',
                     }}
                 >
-                    <ItemImg src={item.src} alt={item.name} />
+                    <ItemImg src={`http://localhost:8082/products/images/${item.imgFileName}`} alt={item.name} />
                 </div>
                 <ItemName>{item.name}</ItemName>
             </ItemInfo>

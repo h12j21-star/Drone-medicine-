@@ -8,24 +8,48 @@ import Product from '../components/products/Product';
 import Search from '../components/products/Search';
 import '../style/products/Products.css';
 import { useLocation, useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 export default function Products() {
-    const stateItem = useSelector((state) => state.item);
-    const shoppingBasket = useSelector((state) => state.shoppingBasket);
-    const dispatch = useDispatch();
-    const [items, setItems] = useState(stateItem);
-    const [pageSize, setPageSize] = useState(6);
-    const [totalItemsCount, setTotalItemsCount] = useState(stateItem.length);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [categories, setCategories] = useState(['All', 'Best']);
-    const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
     const {pharmacy} = useParams();
     const {state} = useLocation();
-    //const deliveryFee = state.deliveryFee;
+    const deliveryFee = state.deliveryFee;
+    
+    const [currentPage, setCurrentPage] = useState(1);
+
+
+    const {isLoading, error, data: itemsByPharmacy} = useQuery(['products', pharmacy], async () =>{
+
+        console.log("products fetching...");
+        let result =axios.get(`http://localhost:8082/products/${pharmacy}`)
+        .then((res)=>{
+            //console.log(`${pharmacy}의 상품 목록: `);
+            //console.log(res.data);
+            return res.data;
+        }).catch((error)=>{
+            console.log(error);
+            return error;
+        });
+        return result;
+        }, 
+            {
+            staleTime: 5000
+            }
+    );
+
+    const shoppingBasket = useSelector((state) => state.shoppingBasket);
+    const dispatch = useDispatch();
+    
+    const [pageSize, setPageSize] = useState(6);
+    const [categories, setCategories] = useState(['All', 'Best']);
+    const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+
 
     useEffect(() => {
-        getItems(currentPage);
+        !isLoading && getItemsByPage(currentPage);
         
         //카테고리 추가시 카테고리 고려하여 제공.
     }, [currentPage]);
@@ -47,11 +71,15 @@ export default function Products() {
         };
     });
 
-    const getItems = (currentPage) => {
+
+    const getItemsByPage = (currentPage) => {
         let start = (currentPage - 1) * pageSize; //페이지당 6개의 아이템씩.
         let end = start + pageSize;
-        setItems(stateItem.slice(start, end));
+        console.log("로딩이 끝났으니, itemsByPharmacy를 페이지 크기에 맞게 쪼갠다.");
+        console.log(itemsByPharmacy);
+        return itemsByPharmacy.slice(start,end);
     };
+
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage);
     };
@@ -59,8 +87,18 @@ export default function Products() {
         e.target.id !== currentCategory && setCurrentCategory(e.target.id);
     };
     const handleShoppingBasket = (item) => {
-        dispatch(AddToCart(item));
+        dispatch(AddToCart({...item, deliveryFee: deliveryFee}));
     };
+
+    if(isLoading) return (
+        <p>Loading...</p>
+    );
+
+    if(error) return (
+        <p>Fetch Error</p>
+    );
+
+
     return (
         <div className="products__wrapper">
             <Navigation prevUrl="/pharmacy" />
@@ -71,14 +109,14 @@ export default function Products() {
                 onCategoryClicked={onCategoryClicked}
             />
             <Product
-                items={items}
+                items={getItemsByPage(currentPage)}
                 shoppingBasket={shoppingBasket}
                 handleShoppingBasket={handleShoppingBasket}
             />
             <Page
                 activePage={currentPage}
                 itemsCountPerPage={pageSize}
-                totalItemsCount={totalItemsCount}
+                totalItemsCount={itemsByPharmacy.length}
                 onChange={handlePageChange}
             />
         </div>

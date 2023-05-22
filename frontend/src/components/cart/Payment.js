@@ -10,6 +10,7 @@ import {
     Unit,
 } from '../../style/cart';
 import axios from "axios";
+
 export default function Payment() {
     const drug = useSelector((state) => state.shoppingBasket);
     const checkedItem = drug.filter((item) => item.checked);

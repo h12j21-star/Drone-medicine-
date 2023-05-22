@@ -7,7 +7,7 @@ const mainImg = 'assets/drugStore.png';
 
 
 const SignIn = () => {
-    const baseUrl = "http://localhost:8082";
+    const baseUrl = "http://localhost:8080";
     const [loginResult, setLoginResult] = useState(null);
     const [ID, setID] = useState();
     const [PW, setPW] = useState();
@@ -51,7 +51,7 @@ const SignIn = () => {
         } else if (IDCheck === -1) {
             setLoginResult("wrong password");
         } else if (IDCheck === 1)  {
-            navigate("/pharmacylist");
+            navigate("/pharmacy");
         }
 
     }

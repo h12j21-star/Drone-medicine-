@@ -6,7 +6,7 @@ import {BlueBtn, LoginMainImg, MainDiv, MainInput, Result, TitleText} from "../.
 import '../../style/fonts.css';
 
 const SignUp = () => {
-    const baseUrl = "http://localhost:8082";
+    const baseUrl = "http://localhost:8080";
 
     const [ID, setID] = useState();
     const [PW, setPW] = useState();
