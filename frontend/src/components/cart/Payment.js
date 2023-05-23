@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -10,11 +10,13 @@ import {
     Unit,
 } from '../../style/cart';
 import axios from "axios";
+import { ResetCart } from '../../store/ItemSlice';
 
 export default function Payment() {
     const drug = useSelector((state) => state.shoppingBasket);
     const checkedItem = drug.filter((item) => item.checked);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     let totalDeliveryFee = 0;
     let totalPrice = 0;
     let totalAmount = 0;
@@ -34,8 +36,10 @@ export default function Payment() {
         let ids = []
         let changeProduct = []
         drug.forEach((item)=>{
-            ids.push(item.id);
-            changeProduct.push(item.amount)
+            if(item.checked){
+                ids.push(item.id);
+                changeProduct.push(item.amount)
+            }
         })
 
         try{
@@ -44,14 +48,14 @@ export default function Payment() {
             "ids":ids,
             "changeProduct":changeProduct},
         );
-
+            dispatch(ResetCart());
             console.log(res)
             setTimeout(()=>{
                 navigate('/delivery');
             },1000)
 
         }catch(err){
-            return err
+            return err;
         }
 
     }

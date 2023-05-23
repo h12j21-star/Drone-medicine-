@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddToCart } from '../store/ItemSlice';
+import { AddToCart, ResetCart } from '../store/ItemSlice';
 import Navigation from '../components/common/Navigation';
 import Category from '../components/products/Category';
 import Page from '../components/products/Page';
@@ -90,6 +90,10 @@ export default function Products() {
         dispatch(AddToCart({...item, deliveryFee: deliveryFee}));
     };
 
+    const resetCart=()=>{
+        dispatch(ResetCart());
+    };
+
     if(isLoading) return (
         <p>Loading...</p>
     );
@@ -101,7 +105,7 @@ export default function Products() {
 
     return (
         <div className="products__wrapper">
-            <Navigation prevUrl="/pharmacy" />
+            <Navigation prevUrl="/pharmacy" resetCart={resetCart} />
             <Search />
             <Category
                 categories={categories}

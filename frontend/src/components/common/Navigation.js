@@ -8,8 +8,9 @@ import {
     faBagShopping,
     faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Pharmacy } from '../pharmacy/Pharmacy';
 
-export default function Navigation({ prevUrl, page }) {
+export default function Navigation({ prevUrl, page}) {
     const navigate = useNavigate();
     return (
         <>
@@ -21,7 +22,9 @@ export default function Navigation({ prevUrl, page }) {
                             icon={faArrowLeftLong}
                             size="lg"
                             onClick={() => {
+                                
                                 navigate(prevUrl);
+                                
                             }}
                         />
                     </div>

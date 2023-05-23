@@ -58,9 +58,13 @@ const InputItem = createSlice({
                 alert('이미 장바구니에 담겨있는 제품입니다.');
             }
         },
+        ResetCart(state, action){
+            console.log("장바구니 초기화");
+            state.shoppingBasket = [];
+        }
     },
 });
 
-export const { ClickUp, ClickDown, ClickCheck, ClickTotalCheck, AddToCart } =
+export const { ClickUp, ClickDown, ClickCheck, ClickTotalCheck, AddToCart, ResetCart } =
     InputItem.actions;
 export default InputItem.reducer;
