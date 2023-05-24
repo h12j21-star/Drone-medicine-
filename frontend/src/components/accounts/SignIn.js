@@ -18,7 +18,7 @@ const SignIn = () => {
     async function signInCheck(){
         let data = 0;
         await axios
-            .get(baseUrl+"/userinfo/"+ID)
+            .get(baseUrl+"userinfo/"+ID)
             .then((response) => {
 
                 if(response.data.id === undefined){

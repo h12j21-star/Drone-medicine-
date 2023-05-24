@@ -6,9 +6,9 @@ spring:
     name: userinfo
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/droneMedicine?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/userinfo?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: 122828
+    password: 1234
 
 
   jpa:
@@ -25,7 +25,7 @@ spring:
 
   data:
     rest:
-      base-path: /api
+      base-path: /api/users
       default-page-size: 10
       max-page-size: 10
 

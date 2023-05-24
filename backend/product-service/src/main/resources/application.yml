@@ -16,7 +16,7 @@ spring:
 
   data:
     rest:
-      base-path: /api
+      base-path: /api/product
       default-page-size: 10
       max-page-size: 10
 
