@@ -28,7 +28,7 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @PostMapping("/products")
+    @PostMapping("/api/products")
     public String addProduct(@RequestBody Product inputProduct){
         //유효성 검사 후, DB에 추가
         System.out.println("post body:" + inputProduct);
@@ -50,18 +50,20 @@ public class ProductController {
 
 
 
-    @GetMapping("/products/{pharmacyName}")
+    @GetMapping("/api/products/{pharmacyName}")
     @ResponseBody
     public List<Product> getProductsByPharmacyName(@PathVariable("pharmacyName") String pharmacyName){
         System.out.println(pharmacyName + "의 제품들 리턴");
+        System.out.println(productRepository.findAllByPharmacyName(pharmacyName));
         return productRepository.findAllByPharmacyName(pharmacyName);
     }
 
-    @GetMapping("/products/images/{imageName}")
+    @GetMapping("/api/products/images/{imageName}")
     public ResponseEntity<Resource> getProductImageByName(@PathVariable("imageName") String imageName){
         try {
             //DB의 이미지 파일명을 저장, 서버의 특정 폴더 안에 있는 이미지파일 프론트에 전송
-            String path="C:\\springExercise\\finalProject\\Drone-medicine-\\backend\\product-service\\image\\";
+//            String path="C:\\springExercise\\finalProject\\Drone-medicine-\\backend\\product-service\\image\\";
+            String path="/Users/kimjuha/Desktop/AdvancedWeb/BioDrone/Drone-medicine-/backend/product-service/image//";
             FileSystemResource resource = new FileSystemResource(path + imageName);
             if(!resource.exists()){
                 throw new NotFoundException();
@@ -76,7 +78,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/products/order")
+    @PutMapping("/api/products/order")
     public String change(@RequestBody ProductPostData request){
         System.out.println("body" + request );
         for(int id = 0 ; id<request.getIds().length;id++){

@@ -16,7 +16,7 @@ const Pharmacy = () => {
   const [pharmacyList, setPharmacyList] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8081/pharmacy")
+      .get("http://localhost:8081/api/pharmacy")
       .then((res) => {
         setPharmacyList(res.data);
         console.log(res.data);
@@ -46,7 +46,7 @@ const Pharmacy = () => {
       }
     >
       <PharmacyImg
-        src={`http://localhost:8081/pharmacy/images/${pharmacyList.img}`}
+        src={`http://localhost:8081/api/pharmacy/images/${pharmacyList.img}`}
       />
       <Pharmacyinfo>
         {pharmacyList.name}

@@ -1,6 +1,13 @@
 server:
   port: 8000
 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 spring:
   main:
     web-application-type: reactive
@@ -17,9 +24,9 @@ spring:
         - id: pharmacyservice
           uri: http://localhost:8081/
           predicates:
-            -Path=/api/pharmacy/**
+            - Path=/api/pharmacy/**
 
         - id: productservice
           uri: http://localhost:8082/
           predicates:
-           -Path=/api/product/**
+           - Path=/api/products/**

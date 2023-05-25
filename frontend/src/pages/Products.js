@@ -27,10 +27,10 @@ export default function Products() {
     async () => {
       console.log("products fetching...");
       let result = axios
-        .get(`http://localhost:8082/products/${pharmacy}`)
+        .get(`http://localhost:8082/api/products/${pharmacy}`)
         .then((res) => {
-          //console.log(`${pharmacy}의 상품 목록: `);
-          //console.log(res.data);
+          console.log(`${pharmacy}의 상품 목록: `);
+          console.log(res.data);
           return res.data;
         })
         .catch((error) => {

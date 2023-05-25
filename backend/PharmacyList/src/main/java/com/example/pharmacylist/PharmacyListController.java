@@ -26,13 +26,13 @@ public class PharmacyListController {
         this.pharmacyListRepository = userRepository;
     }
     
-    @GetMapping("/pharmacy")
+    @GetMapping("/api/pharmacy")
     public List<PharmacyList> getPharmacyList() {
         
         return pharmacyListRepository.findAll();
     }
 
-    @PostMapping("/pharmacy")
+    @PostMapping("/api/pharmacy")
     public String addPharmacy(@RequestBody PharmacyList inputPharmacy){
         Optional<PharmacyList> target =pharmacyListRepository.findByNameAndAddress(inputPharmacy.getName(),inputPharmacy.getAddress());
         if(target.isPresent()){
@@ -52,11 +52,12 @@ public class PharmacyListController {
         return "Success";
     }
 
-    @GetMapping("/pharmacy/images/{imageName}")
+    @GetMapping("/api/pharmacy/images/{imageName}")
     public ResponseEntity<Resource> getProductImageByName(@PathVariable("imageName") String imageName){
         try {
             //DB의 이미지 파일명을 저장, 서버의 특정 폴더 안에 있는 이미지파일 프론트에 전송
-            String path="C:\\springExercise\\finalProject\\Drone-medicine-\\backend\\pharmacyList\\image\\";
+//            String path="C:\\springExercise\\finalProject\\Drone-medicine-\\backend\\pharmacyList\\image\\";
+            String path="/Users/kimjuha/Desktop/AdvancedWeb/BioDrone/Drone-medicine-/backend/PharmacyList/image//";
             FileSystemResource resource = new FileSystemResource(path + imageName);
             if(!resource.exists()){
                 throw new NotFoundException();
