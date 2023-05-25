@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63021d9f-e440-49f8-8c9c-20915ea492fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/PharmacyList/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/PharmacyList/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/UserInfo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/UserInfo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/product-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/accounts/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/accounts/SignIn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "21d23644baa10e1eba75fdd29e179288",
+    "spring.configuration.checksum": "ba131da4c3c77c2bcfb346c2046c5eae",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -105,6 +104,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GatewayApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="com.example.gateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
@@ -131,6 +137,7 @@
       <workItem from="1684650228073" duration="84000" />
       <workItem from="1684924408461" duration="430000" />
       <workItem from="1684925456965" duration="5681000" />
+      <workItem from="1685056915202" duration="1913000" />
     </task>
     <servers />
   </component>

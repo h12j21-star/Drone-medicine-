@@ -20,21 +20,22 @@ const SignIn = () => {
   const navigate = useNavigate();
   useEffect(() => {});
   async function signInCheck() {
-    let data = 0;
-    await axios
-      .get(baseUrl + "userinfo/" + ID)
-      .then((response) => {
-        if (response.data.id === undefined) {
-        } else if (PW === response.data.pw) {
-          data = 1;
-        } else {
-          data = -1; //wrong pw
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    return data;
+      let data = 0;
+      await axios
+          .get(baseUrl + "/userinfo/" + ID)
+          .then((response) => {
+              if (response.data.id === undefined) {
+              } else if(response.data.pw === PW){
+                  data = 1;
+              }else{
+                  data = -1; // wrong pw
+              }
+          })
+          .catch((error) => {
+              console.log(error);
+          });
+
+      return data;
   }
   const handleChange_ID = (e) => {
     e.preventDefault();
