@@ -24,6 +24,7 @@ function App() {
                     <Route path="/products/:pharmacy" element={<Products />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/delivery" element={<Delivery />} />
+                    <Route path="*"element={<div>잘못된 경로입니다.</div>}/>
                 </Routes>
             </Provider>
         </QueryClientProvider>
