@@ -29,18 +29,22 @@ export default function Payment() {
         payment += totalPrice;
     });
     const orderPost = async () =>{
+        let ids = []
+        let changeProduct = []
         if(drug.length<=0){
             alert("장바구니가 비어있습니다.")
             return
         }
-        let ids = []
-        let changeProduct = []
         drug.forEach((item)=>{
             if(item.checked){
                 ids.push(item.id);
                 changeProduct.push(item.amount)
             }
         })
+        if(ids.length<=0){
+            alert("제품을 선택해주세요.");
+            return;
+        }
 
         try{
        const res = await axios.put("http://localhost:8082/products/order",
