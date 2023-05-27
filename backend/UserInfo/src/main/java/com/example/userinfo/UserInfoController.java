@@ -13,12 +13,12 @@ public class UserInfoController {
     public UserInfoController(UserInfoRepository userInfoRepository){
         this.userInfoRepository = userInfoRepository;
     }
-    @GetMapping("/userinfo")
+    @GetMapping("/api/userinfo")
     public List<UserInfo> getUserinfo() {
         return userInfoRepository.findAll();
     }
 
-    @GetMapping("/userinfo/{id}")
+    @GetMapping("/api/userinfo/{id}")
     @ResponseBody
     public UserInfo CheckUserId(@PathVariable String id){
         Optional<UserInfo> account = userInfoRepository.findById(id);
@@ -29,7 +29,7 @@ public class UserInfoController {
         }
     }
 
-    @PostMapping("/userinfo")
+    @PostMapping("/api/userinfo")
     public String create( @RequestBody UserInfo userinfo) {
 
         userInfoRepository.save(userinfo);

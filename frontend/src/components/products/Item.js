@@ -22,7 +22,7 @@ export default function Item({item,index,handleShoppingBasket}) {
                     <button className='item__add__btn' onClick={()=>{handleButtonClick()}}>ADD TO CART</button>  
                 </div>) : ("")
             }
-            <img className='item__img' src={`http://localhost:8082/products/images/${item.imgFileName}`}/>
+            <img className='item__img' src={`http://localhost:8000/api/products/images/${item.imgFileName}`}/>
             <div className='item__name'>{item.name}</div>
             <div className='item__price'>{item.price}원</div>
         </div>

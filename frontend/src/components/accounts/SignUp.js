@@ -23,7 +23,7 @@ const SignUp = () => {
   async function getUserById() {
     let data = null;
     await axios
-      .get(baseUrl + "/userinfo/" + ID)
+      .get(baseUrl + "/api/userinfo/" + ID)
       .then((response) => {
         if (response.data.id === undefined) {
         } else {
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   async function handleSubmit() {
     await axios
-      .post(baseUrl + "/userinfo", {
+      .post(baseUrl + "/api/userinfo", {
         id: ID,
         pw: PW,
       })

@@ -47,7 +47,7 @@ export default function Payment() {
     }
 
     try {
-      const res = await axios.put("http://localhost:8082/api/products/order", {
+      const res = await axios.put("http://localhost:8000/api/products/order", {
         ids: ids,
         changeProduct: changeProduct,
         payment: payment,

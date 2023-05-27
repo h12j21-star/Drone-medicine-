@@ -27,10 +27,10 @@ export default function Products() {
     async () => {
       console.log("products fetching...");
       let result = axios
-        .get(`http://localhost:8082/api/products/${pharmacy}`)
+        .get(`http://localhost:8000/api/products/${pharmacy}`)
         .then((res) => {
-          console.log(`${pharmacy}의 상품 목록: `);
-          console.log(res.data);
+          //console.log(`${pharmacy}의 상품 목록: `);
+          //console.log(res.data);
           return res.data;
         })
         .catch((error) => {
@@ -54,14 +54,13 @@ export default function Products() {
   useEffect(() => {
     !isLoading && getItemsByPage(currentPage);
 
-    //카테고리 추가시 카테고리 고려하여 제공.
   }, [currentPage]);
 
+  /*
   useEffect(() => {
-    //console.log("현재 카테고리는 ",currentCategory);
-    //나중에 카테고리 사용 시 카테고리별로 아이템 제공하기.
-  }, [currentCategory]);
 
+  }, [currentCategory]);
+*/
   useEffect(() => {
     console.log("장바구니:", shoppingBasket);
   }, [shoppingBasket]);
@@ -75,12 +74,8 @@ export default function Products() {
   });
 
   const getItemsByPage = (currentPage) => {
-    let start = (currentPage - 1) * pageSize; //페이지당 6개의 아이템씩.
+    let start = (currentPage - 1) * pageSize; 
     let end = start + pageSize;
-    console.log(
-      "로딩이 끝났으니, itemsByPharmacy를 페이지 크기에 맞게 쪼갠다."
-    );
-    console.log(itemsByPharmacy);
     return itemsByPharmacy.slice(start, end);
   };
 

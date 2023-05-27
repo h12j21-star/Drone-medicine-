@@ -30,3 +30,14 @@ spring:
           uri: http://localhost:8082/
           predicates:
            - Path=/api/products/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allow-credentials: true
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
+

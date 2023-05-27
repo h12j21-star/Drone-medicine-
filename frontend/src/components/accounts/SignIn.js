@@ -22,7 +22,7 @@ const SignIn = () => {
   async function signInCheck() {
       let data = 0;
       await axios
-          .get(baseUrl + "/userinfo/" + ID)
+          .get(baseUrl + "/api/userinfo/" + ID)
           .then((response) => {
               if (response.data.id === undefined) {
               } else if(response.data.pw === PW){
@@ -56,6 +56,22 @@ const SignIn = () => {
       navigate("/pharmacy");
     }
   };
+
+    // 비밀번호 감추는 기능
+    const [passwordVisible, setPasswordVisible] = useState(true);
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordImg, setPasswordImg] = useState("/assets/invisible.png");
+    const ChangePasswordVisible = () => {
+      if (passwordVisible === true) {
+        setPasswordType("text");
+        setPasswordImg("/assets/visible.png");
+      } else {
+        setPasswordType("password");
+        setPasswordImg("/assets/invisible.png");
+      }
+      setPasswordVisible(!passwordVisible);
+    };
+
   return (
     <MainDiv className="mainDiv">
       <TitleText className="titleText">Drone medicine </TitleText>
@@ -68,13 +84,28 @@ const SignIn = () => {
         placeholder="ID"
         onChange={handleChange_ID}
       />
-      <MainInput
-        className="mainInput"
-        name="userPw"
-        type="text"
-        placeholder="PW"
-        onChange={handleChange_PW}
-      />
+
+          <label style={{ position: "relative" }}>
+          <MainInput
+            className="mainInput"
+            name="userPW"
+            type={passwordType}
+            placeholder="PW"
+            onChange={handleChange_PW}
+          />
+          <button
+            style={{
+              position: "absolute",
+              top: "1rem",
+              right: "1.5rem",
+              border: "0",
+              backgroundColor: "transparent",
+            }}
+            onClick={ChangePasswordVisible}
+          >
+            <img src={passwordImg} style={{ width: "20px" }} />
+          </button>
+        </label>
       <BlueBtn className="blueBtn" onClick={_login}>
         Login
       </BlueBtn>
