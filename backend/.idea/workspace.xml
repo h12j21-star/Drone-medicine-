@@ -5,30 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f54ab2b8-b8cb-455b-9e30-fa29ac0357f0" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f106ed78-736a-432f-906a-3f280585843b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharmacyList/src/main/java/com/example/pharmacylist/PharmacyListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyList/src/main/java/com/example/pharmacylist/PharmacyListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharmacyList/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyList/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserInfo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/UserInfo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/domain/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fc63152-5652-4db5-8728-70c1f5452447.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6fc63152-5652-4db5-8728-70c1f5452447.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/domain/ProductPostData.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/dronemedicine/backend/productservice/domain/ProductPostData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/cart/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/cart/Payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +62,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -116,7 +109,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "798ac0949ee63fa6c39caaf3df398407",
+    "spring.configuration.checksum": "8819ab10a58272492a6df2c3150df915",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -212,6 +205,7 @@
       <workItem from="1684822092042" duration="1028000" />
       <workItem from="1684823804687" duration="1479000" />
       <workItem from="1685032186917" duration="5273000" />
+      <workItem from="1685154323610" duration="2272000" />
     </task>
     <servers />
   </component>

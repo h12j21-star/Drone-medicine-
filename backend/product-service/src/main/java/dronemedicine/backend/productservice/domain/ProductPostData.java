@@ -6,4 +6,5 @@ import lombok.Data;
 public class ProductPostData {
     private Long[] ids;
     private Long[] changeProduct;
+    private Long price;
 }

@@ -1,7 +1,9 @@
 package dronemedicine.backend.productservice.controller;
 
+import dronemedicine.backend.productservice.domain.Order;
 import dronemedicine.backend.productservice.domain.Product;
 import dronemedicine.backend.productservice.domain.ProductPostData;
+import dronemedicine.backend.productservice.repository.OrderRepository;
 import dronemedicine.backend.productservice.repository.ProductRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.core.io.FileSystemResource;
@@ -23,9 +25,11 @@ import java.util.Optional;
 public class ProductController {
 
     private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
 
-    public ProductController(ProductRepository productRepository){
+    public ProductController(ProductRepository productRepository, OrderRepository orderRepository){
         this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
     }
 
     @PostMapping("/api/products")
@@ -89,6 +93,18 @@ public class ProductController {
             productRepository.save(_product);
         }
 
+        // put order database
+        int orderNum = ((int)((Math.random() * 100)));
+        for(int id = 0; id < request.getIds().length; id++){
+            Optional<Product>productUpdate = productRepository.findById(request.getIds()[id]);
+            Product _product = productUpdate.get();
+            Order order = new Order();
+            order.setOrderNum(orderNum);
+            order.setName(_product.getName());
+            order.setPrice(_product.getPrice() * request.getChangeProduct()[id]);
+            order.setCount(request.getChangeProduct()[id]);
+            orderRepository.save(order);
+        }
         return "Success";
     }
 
